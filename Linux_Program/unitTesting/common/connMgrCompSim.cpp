@@ -20,6 +20,11 @@ ConnMgrCompSim::~ConnMgrCompSim()
 
 }
 
+Int32 ConnMgrCompSim::initialize()
+{
+	return APP_STATUS_OK;
+}
+
 void ConnMgrCompSim::run()
 {
 	std::cout << _compName << " is running!, priority is " << getPriority() << std::endl;

@@ -9,6 +9,7 @@
 #define CONNMGRCOMPSIM_H_
 
 #include "task.h"
+#include "typeDefine.h"
 #include "taskInfo.h"
 
 class ConnMgrCompSim : public Task
@@ -16,6 +17,9 @@ class ConnMgrCompSim : public Task
 public:
 	ConnMgrCompSim(const std::string &compName);
 	virtual ~ConnMgrCompSim();
+
+public:
+	Int32 initialize();
 
 protected:
 	void run();

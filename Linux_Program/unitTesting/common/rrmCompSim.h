@@ -9,6 +9,7 @@
 #define RRMCOMPSIM_H_
 
 #include "task.h"
+#include "typeDefine.h"
 #include "taskInfo.h"
 
 class RrmCompSim: public Task
@@ -16,6 +17,9 @@ class RrmCompSim: public Task
 public:
 	RrmCompSim(const std::string &name);
 	virtual ~RrmCompSim();
+
+public:
+	Int32 initialize();
 
 protected:
 	void run();

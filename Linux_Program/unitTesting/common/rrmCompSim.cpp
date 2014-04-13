@@ -28,6 +28,11 @@ RrmCompSim::~RrmCompSim()
 
 }
 
+Int32 RrmCompSim::initialize()
+{
+	return APP_STATUS_OK;
+}
+
 void RrmCompSim::run()
 {
 	std::cout << _compName << " is running!, priority is " << getPriority() << std::endl;
