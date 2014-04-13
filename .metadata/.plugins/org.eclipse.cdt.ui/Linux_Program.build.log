@@ -1,0 +1,6 @@
+00:34:25 **** Incremental Build of configuration Linux_Debug for project Linux_Program ****
+make all 
+make: 没有什么可以做的为 `all'。
+
+00:34:26 Build Finished (took 67ms)
+
