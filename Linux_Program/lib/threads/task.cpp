@@ -54,7 +54,7 @@ _Int32 Task::activate()
 	priParam.__sched_priority = _taskInfo.priority;
 #endif
 
-	/* 设置线程优先级 */
+	/* 设置线程优先级  */
 	CHECK_PTHREAD_RETURN(pthread_attr_setschedparam(&attr, &priParam))
 
 	/* 创建线程 */
