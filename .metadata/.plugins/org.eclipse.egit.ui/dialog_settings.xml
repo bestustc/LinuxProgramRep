@@ -7,13 +7,23 @@
 	<list key="CommitDialog.committerValues">
 		<item value="weijian2014 &lt;303101610@qq.com&gt;"/>
 	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/weijian2014/LinuxProgramRep.git"/>
+	</list>
 	<section name="GitCommitMessageComponent">
 	</section>
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
 		<item value="700" key="DIALOG_WIDTH"/>
 		<item value="163" key="DIALOG_Y_ORIGIN"/>
-		<item value="661" key="DIALOG_HEIGHT"/>
 		<item value="586" key="DIALOG_X_ORIGIN"/>
+		<item value="661" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="700" key="DIALOG_WIDTH"/>
+		<item value="468" key="DIALOG_Y_ORIGIN"/>
+		<item value="459" key="DIALOG_HEIGHT"/>
+		<item value="551" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
