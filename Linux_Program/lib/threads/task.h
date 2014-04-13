@@ -9,6 +9,7 @@
 #define TASK_H_
 
 #include <pthread.h>
+#include <map>
 
 #include "../common/baseTypeDefine.h"
 
@@ -41,7 +42,6 @@ private:
 	bool		_isActivate;
 	S_TaskInfo	_taskInfo;
 };
-
 
 
 #endif /* TASK_H_ */

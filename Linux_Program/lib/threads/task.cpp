@@ -46,15 +46,13 @@ _Int32 Task::activate()
 	/* 设置高度算法为SCHED_RR（实时、轮转法）和SCHED_FIFO（实时、先入先出）的可以设置优先级，仅对超级用户有效;SCHED_OTHER（正常、非实时）调度没有优先级，该调度是创建线程时的默认方式 */
 	CHECK_PTHREAD_RETURN(pthread_attr_setschedpolicy(&attr, SCHED_RR))
 
-	/* 设置优先级，程序中1表示优先级最低，99表示优先级最高。但是在内核中，[0,99]表示的实时进程的优先级，0最高，99最低。 */
-
 #ifdef __CYGWIN__
 	priParam.sched_priority = _taskInfo.priority;
 #else
 	priParam.__sched_priority = _taskInfo.priority;
 #endif
 
-	/* 设置线程优先级    */
+	/* 设置优先级，程序中1表示优先级最低，99表示优先级最高。但是在内核中，[0,99]表示的实时进程的优先级，0最高，99最低。 */
 	CHECK_PTHREAD_RETURN(pthread_attr_setschedparam(&attr, &priParam))
 
 	/* 创建线程 */

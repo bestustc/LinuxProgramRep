@@ -1,25 +1,6 @@
-11:44:24 **** Incremental Build of configuration Linux_Debug for project Linux_Program ****
+11:51:56 **** Incremental Build of configuration Linux_Debug for project Linux_Program ****
 make all 
-Building file: ../unitTesting/threadTest/testThread.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/weijian/workspace/workspace_linux/Linux_Program/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/lib" -I"/home/weijian/workspace/workspace_linux/Linux_Program/lib/threads" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"unitTesting/threadTest/testThread.d" -MT"unitTesting/threadTest/testThread.d" -o "unitTesting/threadTest/testThread.o" "../unitTesting/threadTest/testThread.cpp"
-Finished building: ../unitTesting/threadTest/testThread.cpp
- 
-Building file: ../unitTesting/common/connMgrCompSim.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/weijian/workspace/workspace_linux/Linux_Program/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/lib" -I"/home/weijian/workspace/workspace_linux/Linux_Program/lib/threads" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"unitTesting/common/connMgrCompSim.d" -MT"unitTesting/common/connMgrCompSim.d" -o "unitTesting/common/connMgrCompSim.o" "../unitTesting/common/connMgrCompSim.cpp"
-Finished building: ../unitTesting/common/connMgrCompSim.cpp
- 
-Building file: ../unitTesting/common/rrmCompSim.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/weijian/workspace/workspace_linux/Linux_Program/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/common" -I"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/lib" -I"/home/weijian/workspace/workspace_linux/Linux_Program/lib/threads" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"unitTesting/common/rrmCompSim.d" -MT"unitTesting/common/rrmCompSim.d" -o "unitTesting/common/rrmCompSim.o" "../unitTesting/common/rrmCompSim.cpp"
-Finished building: ../unitTesting/common/rrmCompSim.cpp
- 
-Building target: Linux_Program
-Invoking: GCC C++ Linker
-g++ -L"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/lib/gtest/linux_x64_lib" -o "Linux_Program"  ./unitTesting/threadTest/testThread.o  ./unitTesting/common/connMgrCompSim.o ./unitTesting/common/rrmCompSim.o  ./unitTesting/unitTestMain.o  ./lib/threads/task.o   -lpthread -lgtest
-Finished building target: Linux_Program
- 
+make: 没有什么可以做的为 `all'。
 
-11:44:26 Build Finished (took 1s.473ms)
+11:51:56 Build Finished (took 70ms)
 

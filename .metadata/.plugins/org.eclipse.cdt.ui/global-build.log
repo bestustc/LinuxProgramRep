@@ -105,3 +105,6 @@ Invoking: GCC C++ Linker
 g++ -L"/home/weijian/workspace/workspace_linux/Linux_Program/unitTesting/lib/gtest/linux_x64_lib" -o "Linux_Program"  ./unitTesting/threadTest/testThread.o  ./unitTesting/common/connMgrCompSim.o ./unitTesting/common/rrmCompSim.o  ./unitTesting/unitTestMain.o  ./lib/threads/task.o   -lpthread -lgtest
 Finished building target: Linux_Program
  
+11:51:56 **** Incremental Build of configuration Linux_Debug for project Linux_Program ****
+make all 
+make: 没有什么可以做的为 `all'。
