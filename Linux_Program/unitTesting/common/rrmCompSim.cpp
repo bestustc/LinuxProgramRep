@@ -13,6 +13,7 @@
  */
 
 #include <iostream>
+#include <unistd.h>
 
 #include "rrmCompSim.h"
 
@@ -30,6 +31,15 @@ RrmCompSim::~RrmCompSim()
 void RrmCompSim::run()
 {
 	std::cout << _compName << " is running!, priority is " << getPriority() << std::endl;
+
+	int count(1);
+
+	while (count)
+	{
+		std::cout << "count = " << count << std::endl;
+		++count;
+		sleep(1);
+	}
 }
 
 

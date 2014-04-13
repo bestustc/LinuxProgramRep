@@ -20,6 +20,11 @@ TEST(THREAD_TEST, ONE)
 	pRrm->activate();
 	pConnMgr->activate();
 
+	while(1)
+	{
+
+	}
+
 	std::cout << "Main thread is running!\n";
 
 	DELETE_BUF(pRrm)
