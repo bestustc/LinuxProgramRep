@@ -73,7 +73,15 @@ _Int32 Task::activate()
 
 _Int32 Task::getPriority()
 {
-	return _taskInfo.priority;
+	if (_isActivate)
+	{
+		return _taskInfo.priority;
+	}
+	else
+	{
+		return APP_STATUS_ERROR;
+	}
+
 }
 
 void* Task::entryPoint(void *param)

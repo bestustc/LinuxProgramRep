@@ -16,8 +16,8 @@
 
 #include "rrmCompSim.h"
 
-RrmCompSim::RrmCompSim(const std::string &name)
-: Task(RRM_TASK_NAME, RRM_THREAD_PRIORITY, THREAD_STACK_SIZE), _compName(name)
+RrmCompSim::RrmCompSim(const std::string &compName)
+: Task(RRM_TASK_NAME, RRM_THREAD_PRIORITY, THREAD_STACK_SIZE), _compName(compName)
 {
 
 }
@@ -29,7 +29,7 @@ RrmCompSim::~RrmCompSim()
 
 void RrmCompSim::run()
 {
-	std::cout << _compName << " is running!\n";
+	std::cout << _compName << " is running!, priority is " << getPriority() << std::endl;
 }
 
 

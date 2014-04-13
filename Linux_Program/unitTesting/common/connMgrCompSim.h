@@ -14,14 +14,14 @@
 class ConnMgrCompSim : public Task
 {
 public:
-	ConnMgrCompSim(const std::string &name);
+	ConnMgrCompSim(const std::string &compName);
 	virtual ~ConnMgrCompSim();
 
 protected:
 	void run();
 
 private:
-	std::string		_name;
+	std::string		_compName;
 };
 
 #endif /* CONNMGRCOMPSIM_H_ */
