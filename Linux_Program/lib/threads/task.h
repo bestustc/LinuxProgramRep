@@ -32,6 +32,7 @@ public:
 
 public:
 	_Int32 activate();
+	_Int32 cancel();
 	_Int32 getPriority();
 
 protected:
