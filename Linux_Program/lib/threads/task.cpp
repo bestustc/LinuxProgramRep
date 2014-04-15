@@ -21,7 +21,7 @@ Task::Task(const std::string &taskName, const _Int32 priority, const size_t stac
 
 Task::~Task()
 {
-
+	cancel();
 }
 
 _Int32 Task::activate()
@@ -55,6 +55,9 @@ _Int32 Task::activate()
 	/* 设置优先级，程序中1表示优先级最低，99表示优先级最高。但是在内核中，[0,99]表示的实时进程的优先级，0最高，99最低。 */
 	CHECK_PTHREAD_RETURN(pthread_attr_setschedparam(&attr, &priParam))
 
+	/* 修改调度策略或者优先级后，要显式地设置继承调度属性inheritsched（系统不会给该属性设置默认值）, PTHREAD_EXPLICIT_SCHED为不继承（控制调度策略或优先级时必须采用），PTHREAD_INHERIT_SCHED为继承 */
+	CHECK_PTHREAD_RETURN(pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED))
+
 	/* 创建线程 */
 	CHECK_PTHREAD_RETURN(pthread_create(&(_taskInfo.threadId), &attr, Task::entryPoint, (void *)this))
 
@@ -77,9 +80,17 @@ _Int32 Task::cancel()
 	}
 
 	/* 取消线程 */
-	CHECK_PTHREAD_RETURN(pthread_cancel(_taskInfo.threadId));
+	CHECK_PTHREAD_RETURN(pthread_cancel(_taskInfo.threadId))
 
 	return APP_STATUS_OK;
+}
+
+void* Task::entryPoint(void *param)
+{
+	Task *pTask = static_cast<Task *>(param);
+	pTask->run();
+
+	return (void *)NULL;
 }
 
 _Int32 Task::getPriority()
@@ -95,11 +106,66 @@ _Int32 Task::getPriority()
 
 }
 
-void* Task::entryPoint(void *param)
+_Int32 Task::setPriority(const _Int32 priority)
 {
-	Task *pTask = static_cast<Task *>(param);
-	pTask->run();
+	if (!_isActivate)
+	{
+		return APP_STATUS_ERROR;
+	}
 
-	return (void *)NULL;
+	if (MIN_LINUX_PRIORITY > priority || MAX_LINUX_PRIORITY < priority)
+	{
+		return APP_STATUS_ERROR;
+	}
+
+	pthread_attr_t	attr;
+	sched_param		priParam;
+
+#ifdef __CYGWIN__
+	priParam.sched_priority = priority;
+#else
+	priParam.__sched_priority = priority;
+#endif
+
+	CHECK_PTHREAD_RETURN(pthread_attr_init(&attr))
+	CHECK_PTHREAD_RETURN(pthread_attr_setschedparam(&attr, &priParam))
+	CHECK_PTHREAD_RETURN(pthread_attr_destroy(&attr))
+
+	_taskInfo.priority = priority;
+
+	return APP_STATUS_OK;
+}
+
+_Int32 Task::setSchedpolicy(const E_Schedpolicy schedpolicy)
+{
+	if (!_isActivate)
+	{
+		return APP_STATUS_ERROR;
+	}
+
+	pthread_attr_t	attr;
+
+	CHECK_PTHREAD_RETURN(pthread_attr_init(&attr))
+	CHECK_PTHREAD_RETURN(pthread_attr_setschedpolicy(&attr, schedpolicy))
+	CHECK_PTHREAD_RETURN(pthread_attr_destroy(&attr))
+
+	return APP_STATUS_OK;
+}
+
+_Int32 Task::getTaskInfo(S_TaskInfo& taskInfo)
+{
+	taskInfo = _taskInfo;
+
+	return APP_STATUS_OK;
+}
+
+_Int32 Task::getTaskId()
+{
+	return _taskInfo.threadId;
+}
+
+std::string& Task::getTaskName()
+{
+	return _taskInfo.threadName;
 }
 

@@ -9,9 +9,9 @@
 
 using namespace std;
 
-MsgPool* MsgPool::_singletion = NULL;
+MsgMemPool* MsgMemPool::_singletion = NULL;
 
-MsgPool::MsgPool()
+MsgMemPool::MsgMemPool()
 {
 	for (_Uint32 i = 0; i < MAX_POOL_MSG_NUM; ++i)
 	{
@@ -21,14 +21,19 @@ MsgPool::MsgPool()
 	return;
 }
 
-MsgPool* MsgPool::getSingleton()
+MsgMemPool* MsgMemPool::getSingleton()
 {
 	if (NULL == _singletion)
 	{
-		_singletion = new MsgPool();
+		_singletion = new MsgMemPool();
 	}
 
 	return _singletion;
+}
+
+_Int32 MsgMemPool::initialize()
+{
+	return APP_STATUS_OK;
 }
 
 

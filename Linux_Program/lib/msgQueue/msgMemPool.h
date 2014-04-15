@@ -26,16 +26,24 @@ typedef struct
     Uint8					msgBuf[1];		/* 消息体 */
 } S_DispatchMsg;
 
-class MsgPool
+class MsgMemObj
+{
+
+};
+
+class MsgMemPool
 {
 public:
-	MsgPool* getSingleton();
-	~MsgPool();
+	MsgMemPool* getSingleton();
+	~MsgMemPool();
+
+public:
+	_Int32 initialize();
 
 private:
-	MsgPool();
+	MsgMemPool();
 
-	static MsgPool					*_singletion;
+	static MsgMemPool					*_singletion;
 	std::deque<S_DispatchMsg *>		_msgDeque;
 };
 
