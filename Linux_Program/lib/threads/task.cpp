@@ -55,11 +55,11 @@ _Int32 Task::activate()
 	/* 设置优先级，程序中1表示优先级最低，99表示优先级最高。但是在内核中，[0,99]表示的实时进程的优先级，0最高，99最低。 */
 	CHECK_PTHREAD_RETURN(pthread_attr_setschedparam(&attr, &priParam))
 
-	/* 修改调度策略或者优先级后，要显式地设置继承调度属性inheritsched（系统不会给该属性设置默认值）, PTHREAD_EXPLICIT_SCHED为不继承（控制调度策略或优先级时必须采用），PTHREAD_INHERIT_SCHED为继承 */
-	CHECK_PTHREAD_RETURN(pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED))
-
 	/* 创建线程 */
 	CHECK_PTHREAD_RETURN(pthread_create(&(_taskInfo.threadId), &attr, Task::entryPoint, (void *)this))
+
+	/* 修改调度策略或者优先级后，要显式地设置继承调度属性inheritsched（系统不会给该属性设置默认值）, PTHREAD_EXPLICIT_SCHED为不继承（控制调度策略或优先级时必须采用），PTHREAD_INHERIT_SCHED为继承 */
+	CHECK_PTHREAD_RETURN(pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED))
 
 	/* 销毁线程属性 */
 	CHECK_PTHREAD_RETURN(pthread_attr_destroy(&attr))
