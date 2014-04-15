@@ -15,8 +15,11 @@ typedef unsigned char	_Uint8;
 typedef unsigned int	_Uint32;
 typedef int				_Int32;
 
-#define APP_STATUS_OK		(0)
-#define APP_STATUS_ERROR	(-1)
+#define APP_STATUS_OK			(0)			/* 正确返回值 */
+#define APP_STATUS_ERROR		(-1)		/* 错误返回值 */
+
+#define MAX_POOL_MSG_NUM		(300)		/* 消息池中消息对象的最大个数 */
+
 
 #define CHECK_PTHREAD_RETURN(func) \
 { \
