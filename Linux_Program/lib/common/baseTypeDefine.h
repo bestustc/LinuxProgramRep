@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef BASETYPEDEFINE_H_
-#define BASETYPEDEFINE_H_
+#ifndef LINUX_PROGRAM_LIB_COMMON_BASETYPEDEFINE_H_
+#define LINUX_PROGRAM_LIB_COMMON_BASETYPEDEFINE_H_
 
 #include <iostream>
 #include <errno.h>
@@ -32,4 +32,4 @@ typedef int				_Int32;
 	} \
 }
 
-#endif /* BASETYPEDEFINE_H_ */
+#endif /* LINUX_PROGRAM_LIB_COMMON_BASETYPEDEFINE_H_ */

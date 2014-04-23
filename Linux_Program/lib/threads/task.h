@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef TASK_H_
-#define TASK_H_
+#ifndef LINUX_PROGRAM_LIB_THREAD_TASK_H_
+#define LINUX_PROGRAM_LIB_THREAD_TASK_H_
 
 #include <pthread.h>
 #include <map>
@@ -59,4 +59,4 @@ private:
 };
 
 
-#endif /* TASK_H_ */
+#endif /* LINUX_PROGRAM_LIB_THREAD_TASK_H_ */

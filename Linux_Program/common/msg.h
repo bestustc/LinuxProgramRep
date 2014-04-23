@@ -1,0 +1,27 @@
+/*
+ * msg.h
+ *
+ *  Created on: 2014年4月23日
+ *      Author: weijian
+ */
+
+#ifndef LINUX_PROGRAM_COMMON_MSG_H_
+#define LINUX_PROGRAM_COMMON_MSG_H_
+
+typedef enum
+{
+	MSGTYPE_RRM_BEGIN					= 0x00001000,
+	MSGTYPE_RRM_1						= 0x00001001,
+	MSGTYPE_RRM_2						= 0x00001002,
+	MSGTYPE_RRM_END						= 0x00001fff,
+
+	MSGTYPE_CONNMGR_BEGIN				= 0x00002000,
+	MSGTYPE_CONNMGR_1					= 0x00002001,
+	MSGTYPE_CONNMGR_2					= 0x00002002,
+	MSGTYPE_CONNMGR_END					= 0x00002fff,
+
+} E_MsgType;
+
+
+
+#endif /* LINUX_PROGRAM_COMMON_MSG_H_ */

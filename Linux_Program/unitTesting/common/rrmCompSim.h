@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef RRMCOMPSIM_H_
-#define RRMCOMPSIM_H_
+#ifndef LINUX_PROGRAM_UNIT_TESTING_COMMON_RRMCOMPSIM_H_
+#define LINUX_PROGRAM_UNIT_TESTING_COMMON_RRMCOMPSIM_H_
 
 #include "task.h"
 #include "typeDefine.h"
@@ -30,4 +30,4 @@ private:
 
 
 
-#endif /* RRMCOMPSIM_H_ */
+#endif /* LINUX_PROGRAM_UNIT_TESTING_COMMON_RRMCOMPSIM_H_ */

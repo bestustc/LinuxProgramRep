@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef MSGQUEUE_H_
-#define MSGQUEUE_H_
+#ifndef LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUE_H_
+#define LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUE_H_
 
 #include <mqueue.h>
 
@@ -28,4 +28,4 @@ private:
 
 
 
-#endif /* MSGQUEUE_H_ */
+#endif /* LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUE_H_ */

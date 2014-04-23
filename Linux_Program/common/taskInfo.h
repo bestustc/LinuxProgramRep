@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef TASKINFO_H_
-#define TASKINFO_H_
+#ifndef LINUX_PROGRAM_COMMON_TASKINFO_H_
+#define LINUX_PROGRAM_COMMON_TASKINFO_H_
 
 #define RRM_THREAD_PRIORITY		68
 #define CONN_THREAD_PRIORITY	70
@@ -23,4 +23,4 @@
 
 
 
-#endif /* TASKINFO_H_ */
+#endif /* LINUX_PROGRAM_COMMON_TASKINFO_H_ */

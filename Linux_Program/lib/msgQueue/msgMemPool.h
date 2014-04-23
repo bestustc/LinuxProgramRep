@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef MSGMEMPOOL_H_
-#define MSGMEMPOOL_H_
+#ifndef LINUX_PROGRAM_LIB_MSG_QUEUE_MSGMEMPOOL_H_
+#define LINUX_PROGRAM_LIB_MSG_QUEUE_MSGMEMPOOL_H_
 
 #include <deque>
 
@@ -15,9 +15,9 @@
 
 typedef struct
 {
-    Uint32			msgType;			/* 消息类型 */
-    Uint32			extend;				/* 扩展字段 */
-    Uint32			validBitLength;		/* 有效长度， 单位：bit */
+    Uint32			msgType;				/* 消息类型 */
+    Uint32			extend;					/* 扩展字段 */
+    Uint32			validBitLength;			/* 有效长度， 单位：bit */
 } S_DispatchMsgHeade;
 
 typedef struct
@@ -28,7 +28,19 @@ typedef struct
 
 class MsgMemObj
 {
+public:
+	MsgMemObj(const _Uint32 objType, const _Uint32 objTotalLen);
+	~MsgMemObj();
 
+public:
+	S_DispatchMsg* getDispatchMsg();
+	S_DispatchMsgHeade* getMsgHeade();
+	Uint8* getMsgBuf();
+
+private:
+	S_DispatchMsg 			_dispatchMsg;	/* 消息结构 */
+	_Uint32					_objType;		/* 消息对象类型 */
+	_Uint32					_objTotalLen;	/* 消息对象总长度 */
 };
 
 class MsgMemPool
@@ -44,9 +56,9 @@ private:
 	MsgMemPool();
 
 	static MsgMemPool					*_singletion;
-	std::deque<S_DispatchMsg *>		_msgDeque;
+	std::deque<S_DispatchMsg *>			_msgDeque;
 };
 
 
 
-#endif /* MSGMEMPOOL_H_ */
+#endif /* LINUX_PROGRAM_LIB_MSG_QUEUE_MSGMEMPOOL_H_ */

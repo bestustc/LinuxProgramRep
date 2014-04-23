@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef CONNMGRCOMPSIM_H_
-#define CONNMGRCOMPSIM_H_
+#ifndef LINUX_PROGRAM_UNIT_TESTING_COMMON_CONNMGRCOMPSIM_H_
+#define LINUX_PROGRAM_UNIT_TESTING_COMMON_CONNMGRCOMPSIM_H_
 
 #include "task.h"
 #include "typeDefine.h"
@@ -28,4 +28,4 @@ private:
 	std::string		_compName;
 };
 
-#endif /* CONNMGRCOMPSIM_H_ */
+#endif /* LINUX_PROGRAM_UNIT_TESTING_COMMON_CONNMGRCOMPSIM_H_ */

@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef TYPEDEFINE_H_
-#define TYPEDEFINE_H_
+#ifndef LINUX_PROGRAM_COMMON_TYPEDEFINE_H_
+#define LINUX_PROGRAM_COMMON_TYPEDEFINE_H_
 
 typedef unsigned char	Uint8;
 typedef unsigned int	Uint32;
@@ -46,4 +46,4 @@ typedef unsigned long	Uint64;
 	} \
 }
 
-#endif /* TYPEDEFINE_H_ */
+#endif /* LINUX_PROGRAM_COMMON_TYPEDEFINE_H_ */

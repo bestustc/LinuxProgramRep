@@ -5,8 +5,8 @@
  *      Author: weijian
  */
 
-#ifndef MSGQUEUEIF_H_
-#define MSGQUEUEIF_H_
+#ifndef LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUEIF_H_
+#define LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUEIF_H_
 
 #include "../common/baseTypeDefine.h"
 
@@ -29,4 +29,4 @@ private:
 
 
 
-#endif /* MSGQUEUEIF_H_ */
+#endif /* LINUX_PROGRAM_LIB_MSG_QUEUE_MSGQUEUEIF_H_ */
