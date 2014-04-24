@@ -13,6 +13,8 @@
 #include "typeDefine.h"
 #include "../common/baseTypeDefine.h"
 
+#define MSG_LEN_DISPATCH	(sizeof(S_DispatchMsg))
+
 typedef struct
 {
     Uint32			msgType;				/* 消息类型 */
@@ -26,19 +28,19 @@ typedef struct
     Uint8					msgBuf[1];		/* 消息体 */
 } S_DispatchMsg;
 
-class MsgMemObj
+class MsgObj
 {
 public:
-	MsgMemObj(const _Uint32 objType, const _Uint32 objTotalLen);
-	~MsgMemObj();
+	MsgObj(const _Uint32 objType, const _Uint32 objTotalLen);
+	~MsgObj();
 
 public:
-	S_DispatchMsg* getDispatchMsg();
-	S_DispatchMsgHeade* getMsgHeade();
-	Uint8* getMsgBuf();
+//	S_DispatchMsg* getDispatchMsg();
+//	S_DispatchMsgHeade* getMsgHeade();
+//	Uint8* getMsgBuf();
 
 private:
-	S_DispatchMsg 			_dispatchMsg;	/* 消息结构 */
+	S_DispatchMsg 			*_pDispatchMsg;	/* 消息结构 */
 	_Uint32					_objType;		/* 消息对象类型 */
 	_Uint32					_objTotalLen;	/* 消息对象总长度 */
 };
@@ -55,10 +57,10 @@ public:
 private:
 	MsgObjPool();
 
-	static MsgObjPool					*_singletion;
-	std::deque<S_DispatchMsg *>			_msgDeque;
-	_Uint32								_maxMsgConut;
-	bool								_isInit;
+	static MsgObjPool			*_singletion;	/* 本类单件指针 */
+	std::deque<MsgObj *>		_msgDeque;		/* 消息对象Deque */
+	_Int32						_maxMsgConut;	/* 消息最大数目 */
+	bool						_isInit;		/* 是否已经初始化消息对象池 */
 };
 
 

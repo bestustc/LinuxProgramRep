@@ -7,7 +7,41 @@
 
 #include "msgObjPool.h"
 
-using namespace std;
+//using namespace std;
+
+/******************************************************************
+  Function:		MsgObj::MsgObj()
+  Description:	消息对象类的构造函数
+  Input:		none
+  Output:		none
+  Return:		none
+  Others:		none
+*******************************************************************/
+MsgObj::MsgObj(const _Uint32 objType, const _Uint32 objTotalLen) :
+	_pDispatchMsg(new S_DispatchMsg()), _objType(objType), _objTotalLen()
+{
+
+}
+
+/******************************************************************
+  Function:		MsgObj::MsgObj()
+  Description:	消息对象类的析构函数
+  Input:		none
+  Output:		none
+  Return:		none
+  Others:		none
+*******************************************************************/
+MsgObj::~MsgObj()
+{
+	DELETE_BUF(_pDispatchMsg);
+}
+
+
+
+
+
+
+
 
 MsgObjPool* MsgObjPool::_singletion = NULL;
 
@@ -20,7 +54,7 @@ MsgObjPool* MsgObjPool::_singletion = NULL;
   Others:		none
 *******************************************************************/
 MsgObjPool::MsgObjPool() :
-		_isInit(false), _maxMsgConut(0)
+		_maxMsgConut(0), _isInit(false)
 {
 
 }
@@ -70,7 +104,7 @@ _Int32 MsgObjPool::initialize(const _Int32 maxMsgConut)
 
 	for (_Int32 i = 0; i < maxMsgConut; ++i)
 	{
-		_msgDeque.push_back(new S_DispatchMsg());
+		_msgDeque.push_back(new MsgObj(0xffffffff, MSG_LEN_DISPATCH));
 	}
 
 	_maxMsgConut = maxMsgConut;

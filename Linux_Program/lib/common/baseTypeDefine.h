@@ -31,4 +31,13 @@ typedef int				_Int32;
 	} \
 }
 
+#define DELETE_BUF(buf) \
+{ \
+	if (NULL != buf) \
+	{ \
+		delete buf; \
+		buf = NULL; \
+	} \
+}
+
 #endif /* LINUX_PROGRAM_LIB_COMMON_BASETYPEDEFINE_H_ */

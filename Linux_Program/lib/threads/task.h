@@ -54,8 +54,8 @@ protected:
 	static void *entryPoint(void *param);
 
 private:
-	bool		_isActivate;
-	S_TaskInfo	_taskInfo;
+	bool		_isActivate;			/* 线程是否已经激活 */
+	S_TaskInfo	_taskInfo;				/* 线程信息结构体 */
 };
 
 
