@@ -43,20 +43,22 @@ private:
 	_Uint32					_objTotalLen;	/* 消息对象总长度 */
 };
 
-class MsgMemPool
+class MsgObjPool
 {
 public:
-	MsgMemPool* getSingleton();
-	~MsgMemPool();
+	MsgObjPool* getSingleton();
+	~MsgObjPool();
 
 public:
-	_Int32 initialize();
+	_Int32 initialize(const _Int32 maxMsgConut);
 
 private:
-	MsgMemPool();
+	MsgObjPool();
 
-	static MsgMemPool					*_singletion;
+	static MsgObjPool					*_singletion;
 	std::deque<S_DispatchMsg *>			_msgDeque;
+	_Uint32								_maxMsgConut;
+	bool								_isInit;
 };
 
 

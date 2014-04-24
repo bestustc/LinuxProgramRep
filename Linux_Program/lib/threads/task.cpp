@@ -10,6 +10,14 @@
 
 #include "task.h"
 
+/******************************************************************
+  Function:		Task::Task()
+  Description:	线程类构造函数
+  Input:		线程名、线程优先级、线程栈大小
+  Output:		none
+  Return:		none
+  Others:		none
+*******************************************************************/
 Task::Task(const std::string &taskName, const _Int32 priority, const size_t stackSize)
 {
 	_isActivate 				= false;
@@ -19,11 +27,27 @@ Task::Task(const std::string &taskName, const _Int32 priority, const size_t stac
 	_taskInfo.stackSize			= stackSize;
 }
 
+/******************************************************************
+  Function:		Task::~Task()
+  Description:	线程类析构函数，析构时取消线程
+  Input:		none
+  Output:		none
+  Return:		none
+  Others:		none
+*******************************************************************/
 Task::~Task()
 {
 	cancel();
 }
 
+/******************************************************************
+  Function:		Task::activate()
+  Description:	线程激活，此时才创建线程
+  Input:		none
+  Output:		none
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::activate()
 {
 	if (_isActivate)
@@ -72,6 +96,14 @@ _Int32 Task::activate()
 	return APP_STATUS_OK;
 }
 
+/******************************************************************
+  Function:		Task::cancel()
+  Description:	取消线程
+  Input:		none
+  Output:		none
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::cancel()
 {
 	if (!_isActivate)
@@ -85,6 +117,14 @@ _Int32 Task::cancel()
 	return APP_STATUS_OK;
 }
 
+/******************************************************************
+  Function:		Task::entryPoint()
+  Description:	创建线程后调用的，启动线程的run函数
+  Input:		线程this
+  Output:		none
+  Return:		none
+  Others:		none
+*******************************************************************/
 void* Task::entryPoint(void *param)
 {
 	Task *pTask = static_cast<Task *>(param);
@@ -93,6 +133,14 @@ void* Task::entryPoint(void *param)
 	return (void *)NULL;
 }
 
+/******************************************************************
+  Function:		Task::getPriority()
+  Description:	获取线程优先级
+  Input:		none
+  Output:		none
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::getPriority()
 {
 	if (_isActivate)
@@ -106,6 +154,14 @@ _Int32 Task::getPriority()
 
 }
 
+/******************************************************************
+  Function:		Task::setPriority()
+  Description:	设置线程优先级
+  Input:		线程优先级
+  Output:		none
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::setPriority(const _Int32 priority)
 {
 	if (!_isActivate)
@@ -136,6 +192,14 @@ _Int32 Task::setPriority(const _Int32 priority)
 	return APP_STATUS_OK;
 }
 
+/******************************************************************
+  Function:		Task::setSchedpolicy()
+  Description:	设置线程的调度策略
+  Input:		E_Schedpolicy
+  Output:		none
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::setSchedpolicy(const E_Schedpolicy schedpolicy)
 {
 	if (!_isActivate)
@@ -152,6 +216,14 @@ _Int32 Task::setSchedpolicy(const E_Schedpolicy schedpolicy)
 	return APP_STATUS_OK;
 }
 
+/******************************************************************
+  Function:		Task::getTaskInfo()
+  Description:	获取线程信息结构
+  Input:		S_TaskInfo
+  Output:		S_TaskInfo
+  Return:		成功返回APP_STATUS_OK，失败返回APP_STATUS_ERROR
+  Others:		none
+*******************************************************************/
 _Int32 Task::getTaskInfo(S_TaskInfo& taskInfo)
 {
 	taskInfo = _taskInfo;
@@ -159,11 +231,27 @@ _Int32 Task::getTaskInfo(S_TaskInfo& taskInfo)
 	return APP_STATUS_OK;
 }
 
+/******************************************************************
+  Function:		Task::getTaskId()
+  Description:	获取线程ID
+  Input:		none
+  Output:		none
+  Return:		线程ID
+  Others:		none
+*******************************************************************/
 _Int32 Task::getTaskId()
 {
 	return _taskInfo.threadId;
 }
 
+/******************************************************************
+  Function:		Task::getTaskName()
+  Description:	获取线程名称
+  Input:		none
+  Output:		none
+  Return:		线程名称字符串的引用
+  Others:		none
+*******************************************************************/
 std::string& Task::getTaskName()
 {
 	return _taskInfo.threadName;
