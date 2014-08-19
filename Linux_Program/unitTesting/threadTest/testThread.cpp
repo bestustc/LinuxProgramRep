@@ -8,7 +8,7 @@
 #include <iostream>
 #include <gtest/gtest.h>
 
-#include "typeDefine.h"
+#include "baseTypeDefine.h"
 #include "rrmCompSim.h"
 #include "connMgrCompSim.h"
 

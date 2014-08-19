@@ -9,8 +9,7 @@
 #define LINUX_PROGRAM_UNIT_TESTING_COMMON_CONNMGRCOMPSIM_H_
 
 #include "task.h"
-#include "typeDefine.h"
-#include "taskInfo.h"
+#include "baseTypeDefine.h"
 
 class ConnMgrCompSim : public Task
 {

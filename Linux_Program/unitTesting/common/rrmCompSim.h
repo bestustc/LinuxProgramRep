@@ -9,8 +9,8 @@
 #define LINUX_PROGRAM_UNIT_TESTING_COMMON_RRMCOMPSIM_H_
 
 #include "task.h"
-#include "typeDefine.h"
-#include "taskInfo.h"
+#include "baseTypeDefine.h"
+#include "../lib/threads/task.h"
 
 class RrmCompSim: public Task
 {
