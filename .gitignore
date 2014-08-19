@@ -23,6 +23,7 @@
 
 # Dir
 .metadata/
+Linux_Program/.settings/
 Linux_Program/Linux_Debug/
 Linux_Program/Windows_Debug/
 RemoteSystemsTempFiles/
